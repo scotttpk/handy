@@ -1,32 +1,34 @@
-logo = "/images/logo.png"
-icon = "/images/favicon.png"
-tagline = "Most Functional Netlify Theme for Affiliates"
-contacteMail = "yousafblogger@gmail.com"
+logo = "/uploads/surferhandy-logo.png"
+icon = "/uploads/surferhandy-favicon-1-32x32.png"
+tagline = "Your Source For Every Handy Advice"
+contacteMail = ""
 
 [amznTracking]
-global = "salesmag-20"
-topProducts = "salesmagtable-20"
-table = "salesmagtable-20"
-review = "salesmagreview-20"
+global = ""
+topProducts = ""
+table = ""
+review = ""
+
+[siteRobots]
+pageIndex = true
 
 [open_graph]
-meta_Description = "If you're looking to create a professional website that will help you increase your affiliate sales, look no further than this Netlify theme."
-image = "/images/logo.png"
+meta_Description = "Build Your Dreams with Wood and get Amazing ultimate guide. We cover everything about wood and help worker around the world."
+image = "/uploads/surferhandy-logo.png"
 
 [social_accounts]
-sitefbAccount = "https://facebook.com/"
-sitetwitterAccount = "https://twitter.com/"
-siteinstagramAccount = "https://instagram.com/"
-sitepinterestAccount = "https://pinterest.com/"
-siteYouTubeAccount = "https://youtube.com/"
+sitefbAccount = ""
+sitetwitterAccount = ""
+siteinstagramAccount = ""
+sitepinterestAccount = ""
+siteYouTubeAccount = ""
 
 [post_setting]
-featured_img = true
+featured_img = false
 show_comments = true
 
-
 [home_setting]
-footerText = "With built-in conversion tracking and easy integration with your favorite affiliate networks, this is the perfect solution for anyone looking to improve their affiliate marketing efforts."
-headerText = "We are supported by our audience. When you purchase through our links, we may earn an affiliate commission at no additional cost to you."
+footerText = ""
+headerText = ""
 blogSection = true
 headerStyle = "Style 2"
