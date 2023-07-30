@@ -2,7 +2,7 @@ languageCode = "en-us"
 DisqusShortname = ""
 googleAnalytics = ""
 baseURL = "https://dynamic-seahorse-66e3e3.netlify.app"
-title = "Sales Mag Theme"
+title = "SurferHandy"
 paginate = "14"
 assetDir = "static"
 
