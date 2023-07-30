@@ -1,0 +1,47 @@
+[[main]]
+weight = 1
+name = "Home"
+url = "/"
+
+[[main]]
+weight = 1
+name = "Layouts"
+url = "#"
+
+[[main]]
+weight = 1
+name = "Affiliate Post"
+url = "/affiliate-post/"
+parent = "Layouts"
+
+[[main]]
+weight = 2
+name = "Normal Post"
+url = "/the-senate-that-our-ability-to-use-the-force-has-diminished/"
+parent = "Layouts"
+
+[[main]]
+weight = 3
+name = "Single Review Post"
+url = "/review-page-single/"
+parent = "Layouts"
+
+[[main]]
+weight = 3
+name = "Elements"
+url = "/elements/"
+
+[[main]]
+weight = 4
+name = "Buy this Theme"
+url = "https://www.facebook.com/hey.yousaf"
+
+[[footer]]
+weight = 1
+name = "Elements"
+url = "/elements/"
+
+[[footer]]
+weight = 1
+name = "Contact Form"
+url = "/contact-form/"

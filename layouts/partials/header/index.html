@@ -1,0 +1,14 @@
+<nav id="primary-nav" class="primary-nav{{ if eq site.Params.home_setting.headerStyle "Style 2" }} responsive{{ end }}" role="banner">
+    {{ partial "header/layout" . }}
+    
+
+    {{ if eq site.Params.home_setting.headerStyle "Style 1" }}
+        {{ partial "header/navigation" . }}
+    {{ else if eq site.Params.home_setting.headerStyle "Group Navigation" }}
+        {{ partial "header/group-nav" . }}
+    {{ else }}
+        {{ partial "header/new-nav.html" . }}
+    {{ end }}
+
+    {{ partial "header/trending" . }}
+</nav>

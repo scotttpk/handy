@@ -1,0 +1,57 @@
+{{ if  .Site.Data.authors}}    
+<style>
+    .author-box {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 30px;
+        padding: 20px;
+        background: white;
+        margin-top: 20px;
+    }
+    .author-box .avatar img{
+        border-radius: 100%;
+    }
+    h1.name {
+        background: linear-gradient(90deg, black, var(--mainColor));
+        color: var(--mainColor) !important;
+        background-clip: text;
+        -webkit-background-clip: text;
+        display: inline-block;
+    }
+</style>
+{{ $author := index .Site.Data.authors (.Title | anchorize) }}
+<div class="author-box">
+    <div class="avatar"><img src="{{ $author.avatar | absURL }}" loading="lazy" alt="{{ $author.name }}" title="{{ $author.name }}" /></div>
+    <div class="author-data">
+        <h1 class="name">{{ $author.name }}</h1>
+        <p class="bio">{{ $author.bio }}</p>
+            <ul class="author-socials" style="margin-bottom: 0;">
+                {{ with $author.facebook }}
+                <li class="socialite-widget-item">
+                    <a data-component-tracking-label="Facebook" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="facebook socialite">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}{{ with $author.twitter }}
+                <li class="socialite-widget-item">
+                    <a data-component-tracking-label="Twitter" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="twitter socialite">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}{{ with $author.linkedin }}
+                <li class="socialite-widget-item">
+                    <a data-component-tracking-label="Linkedin" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="linkedin socialite">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}{{ with $author.email }}
+                <li class="socialite-widget-item">
+                    <a data-component-tracking-label="Email" rel="nofollow noopener noreferrer" href="{{.}}" class="email socialite">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+    </div>
+</div>
+{{ end }}

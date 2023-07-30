@@ -1,0 +1,75 @@
+{{ $Cathidden := 0 }}
+{{ $Drophidden := 0 }}
+<div class="main-nav">
+    <div class="bound">
+        <div class="responsive-menu">
+            <div class="nav">
+                <a href="/" aria-label="home" class="home-link">
+                    <span>Home</span>
+                </a>
+                <div class="dropdown-container" role="menuitem" data-component-label="Best Pick">
+                    <span class="nav-link best-pick">
+                        Best Picks
+                        <span class="icon-circle icon-arrow-down" aria-label="Arrow Down">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                            </svg>
+                        </span>
+                    </span>
+                    <div class="nav-dropdown-content">
+                        <div class="dropdown-categories">
+                            <p>CATEGORIES</p>
+                            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                            <button class="nav-link {{$name}}_btn" onclick="openCategoryPosts(this)" role="menuitem"
+                                data-component-label="{{$name | title}}">
+                                {{$name | title}}<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    id="{{$name}}_icon" class="nav-link-icon{{if $Cathidden}} hidden{{end}} {{$Cathidden = add $Cathidden 1}}">
+                                    <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2">
+                                        <path data-name="Line 1087" d="M1 6.392h10"></path>
+                                        <path data-name="Path 18074" d="M6 1.414l4.978 4.978L6 11.37"></path>
+                                    </g>
+                                </svg></button>
+                                {{ end }}
+
+                        </div>
+                        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                        <div class="dropdown-posts{{if $Drophidden}} hidden{{end}} {{$Drophidden = add $Drophidden 1}}" id="{{$name}}">
+                            <p>{{$name | title}}</p>
+                            <div class="nav-custom-posts">
+                                {{ range . }}
+                                <a href="{{.Permalink}}" itemscope="" itemtype="https://schema.org/Guide" class="nav-blog">
+                                    <p itemprop="name">
+                                        {{.Title}}
+                                    </p>
+                                    <meta itemprop="thumbnailUrl"
+                                        content="{{.Params.featured_Image}}" />
+                                    <meta itemprop="description"
+                                        content="{{.Params.meta_Description}}" />
+                                    <meta itemprop="dateCreated" content="{{.Date}}" />
+                                    <link itemprop="url"
+                                        href="{{.Permalink}}" />
+                                    <link itemprop="image"
+                                        href="{{.Params.featured_Image}}" />
+                                    <meta itemprop="author creator" content="{{.Params.author}}" /><span
+                                        class="blog-post-time" itemprop="dateCreated">Last Updated on 
+                                        {{ if .Params.updateDate }}
+                                        {{dateFormat "2 Jan" .Params.updateDate}}
+                                         {{ else }}
+                                        {{dateFormat "2 Jan" .Date}}
+                                        {{ end }}
+                                    </span>
+                                </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

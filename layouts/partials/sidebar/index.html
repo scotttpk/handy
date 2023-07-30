@@ -1,0 +1,11 @@
+<div class="w-25 hidden-in-print ml3 sidebar c-v-a">
+    <div class="p-sticky top-1">
+        <div class="sidebar-container">
+            {{ if eq site.Params.post_setting.show_all_toc true }}
+                {{ partial "sidebar/widgets/auto-toc" . }}
+            {{ else }}
+                {{ partial "sidebar/widgets/toc" . }}
+            {{ end }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{{ if .Params.the_products }}
+{{ if .Params.product_Summary }}
+<h2 class="top-picks" id="product-summary"><strong>{{.Params.product_Summary}}</strong></h2>
+{{ else }}
+<h2 class="top-picks" id="product-summary"><strong>{{ .Title }} Summary</strong></h2>
+{{ end }}
+<table class="product-table">
+<thead>
+<tr style="background-color:var(--tableHeaderColor);color:var(--tableHeaderText)">
+{{range first 1 .Params.the_products }}
+{{ with .award }}
+  <th scope="col">Award</th>
+  {{ end }}
+{{ end }}
+  <th scope="col">Image</th>
+  <th scope="col">Model</th>
+  <th scope="col">Price</th>
+</tr>
+</thead>
+<tbody>
+    {{ range .Params.the_products }}
+        <tr>
+            {{ with .award }}<td data-label="Award">{{ . }}</td>{{ end }}
+            <td data-label="Image">
+            <img width="110" height="110" src="{{ .image }}" alt="{{ .name }}" title="{{ .name }}">
+            </td>
+            <td data-label="Brand">{{ .nameForTOC }}</div></td>
+            <td data-label="Price">
+                {{ $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+                <a class="btn btn-table" href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.table}}{{end}}" target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.table_CTA | default "See on Amazon" }}</a>
+            </td>
+        </tr>
+    {{ end }}
+    </tbody>
+</table>
+{{ end }}

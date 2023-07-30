@@ -1,0 +1,80 @@
+{{ $products := .Params.the_products}}
+{{ if $products }}
+<h2 id="top-picks" class="top-picks">Our Top 3 Recommendations</h2>
+<div class="table-grid">
+    {{ $products := .Params.the_products}}
+    {{ range first 1 $products }}
+    {{- $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+    <div class="table-grid-item">
+        <span class="grid-pick" style="background-color: #A02902;">Best Pick</span>
+        <a class="grid-img"
+           href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}">
+            <img width="130" height="130" src="{{ .image }}" alt="{{ .name }}" title="{{ .name }}">
+        </a>
+        <a class="grid-name" href="#{{.name | anchorize}}">{{ .nameForTOC }}</a>
+        {{ if .pros }}
+        <div class="the-features">
+            {{range first 3 .pros}}
+            <p>{{.pro}}</p>
+            {{end}}
+        </div>
+        {{end}}
+        <div class="grid-cta">
+            {{- $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+            <a class="btn btn-table"
+               href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}"
+                target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.top3_CTA | default "Check Price" }}</a>
+
+        </div>
+    </div>
+    {{ end }}
+    <!-- 2nd Pick -->
+    {{ range after 1 $products | first 1 }}
+    {{- $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+    <div class="table-grid-item">
+        <span class="grid-pick" style="background-color:var(--mainColor);">Most Popular</span>
+        <a class="grid-img"
+           href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}">
+            <img width="130" height="130" src="{{ .image }}" alt="{{ .name }}" title="{{ .name }}">
+        </a>
+        <a class="grid-name" href="#{{.name | anchorize}}">{{ .nameForTOC }}</a>
+        {{ if .pros }}
+        <div class="the-features">
+            {{range first 3 .pros}}
+            <p>{{.pro}}</p>
+            {{end}}
+        </div>
+        {{end}}
+        <div class="grid-cta">
+            <a class="btn btn-table"
+               href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}"
+                target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.top3_CTA | default "View on Amazon" }}</a>
+        </div>
+    </div>
+    {{ end }}
+    <!-- 3rd Pick -->
+    {{ range after 2 $products | first 1 }}
+    {{- $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+    <div class="table-grid-item">
+        <span class="grid-pick">Budget Pick</span>
+        <a class="grid-img"
+           href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}">
+            <img width="130" height="130" src="{{ .image }}" alt="{{ .name }}" title="{{ .name }}">
+        </a>
+        <a class="grid-name" href="#{{.name | anchorize}}">{{ .nameForTOC }}</a>
+        {{ if .pros }}
+        <div class="the-features">
+            {{range first 3 .pros}}
+            <p>{{.pro}}</p>
+            {{end}}
+        </div>
+        {{end}}
+        <div class="grid-cta">
+            <a class="btn btn-table"
+               href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.topProducts}}{{end}}"
+                target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.top3_CTA | default "View on Amazon" }}</a>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{end}}

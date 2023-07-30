@@ -1,0 +1,14 @@
+
+<div id="article-body" class="text-copy contentBody">
+    
+    <article class="article">
+        {{ .Content | markdownify | htmlUnescape | safeHTML }}
+        {{ partial "single/advanced-single/faqs" . }}
+    </article>
+
+    {{ partial "single/author-box" . }}
+{{ if eq site.Params.post_setting.show_comments true }}
+    {{ partial "single/footer" . }}
+    {{ partial "single/disqus" . }}
+{{ end }}
+</div>

@@ -1,0 +1,16 @@
+{{ if eq site.Params.home_setting.headerStyle "Group Navigation" }}
+    {{- partial "basic/schema/group-nav.html" . }}
+{{ else }}
+    {{- partial "basic/schema/navigation.html" . }}
+{{ end }}
+
+
+{{- if .IsHome }}
+    {{- partial "basic/schema/organization.html" . }}
+    {{- partial "basic/schema/blog-schema.html" . }}
+{{- end }}
+
+{{- if or (eq .Page.Type "posts") (eq .Page.Type "knowledge-base") }}
+    {{- partial "basic/schema/article.html" . }}
+    {{- partial "basic/schema/blogpost.html" . }}
+{{- end }}

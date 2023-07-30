@@ -1,0 +1,70 @@
+{{ if .Params.author }}
+{{ $author := index .Site.Data.authors (.Params.author | anchorize) }}
+{{- if $author.name -}}
+<div class="author-box">
+    <div class="avatar"><img src="{{ $author.avatar | absURL }}" loading="lazy" alt="{{ $author.name }}" title="{{ $author.name }}" /></div>
+    <div class="name"><a href="/author/{{.Params.author | anchorize}}/">{{ $author.name }}</a></div>
+    <div class="bio">{{ $author.bio }}</div>
+    <ul class="author-socials" style="margin-bottom: 0;">
+        {{ with $author.facebook }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Facebook" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="facebook socialite">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.twitter }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Twitter" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="twitter socialite">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.linkedin }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Linkedin" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="linkedin socialite">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.email }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Email" rel="nofollow noopener noreferrer" href="{{.}}" class="email socialite">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{- else -}}
+<div class="author-box">
+    <div class="avatar" style="background-image: url({{site.Params.Author.avatar}});"></div>
+    <div class="name">{{site.Params.Author.name}}</div>
+    <div class="bio">{{site.Params.Author.bio}}</div>
+    <ul class="author-socials" style="margin-bottom: 0;">
+        {{ with $author.facebook }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Facebook" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="facebook socialite">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.twitter }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Twitter" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="twitter socialite">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.linkedin }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Linkedin" rel="nofollow noopener noreferrer" href="{{.}}" target="_blank" class="linkedin socialite">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}{{ with $author.email }}
+        <li class="socialite-widget-item">
+            <a data-component-tracking-label="Email" rel="nofollow noopener noreferrer" href="{{.}}" class="email socialite">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{- end -}}
+{{ end }}

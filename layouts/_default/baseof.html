@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{- partial "basic/head" . -}}
+    {{- partial "basic/analytics" . -}}
+    {{- partial "basic/schema" . -}}
+</head>
+    <body>
+        {{ partial "header/index" . }}
+        <div id="main" class="container full">
+        {{ partial "header/affiliate-badge" . }}
+
+        {{ block "main" . }}
+            
+        {{ end }}
+        </div>
+        {{ partial "footer/index" . }}
+    </body>
+</html>

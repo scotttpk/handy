@@ -1,0 +1,84 @@
+@media screen and (max-width:900px) {
+    .box.less-space {
+        margin-bottom: 15px
+    }
+    .burgerbar-small{
+        justify-content: space-between;
+    }
+    img.logo{
+        height: 50px;
+    }
+    .trending-wrapper .trend-wrapper::-webkit-scrollbar {
+        height: 6px;
+        background-color: #f5f5f5
+    }
+    .trending-wrapper .trend-wrapper::-webkit-scrollbar-thumb {
+        background-color: var(--mainColor);
+        border-radius: 10px
+    }
+    .trending-wrapper .trend-wrapper::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+        background-color: #f5f5f5;
+        border-radius: 10px
+    }
+    .nav-list.component-loaded {
+        padding-top: 1em;
+        background: var(--mainColor);
+    }
+    .burgerbar .buttons-social a {
+        color: #fff;
+        width: 15px;
+        height: 15px;
+        display: block;
+        margin: 0 5px;
+        padding: 4.5px;  
+        border-radius: 50%;
+    }
+    .buttons-social .icon-circle>i {
+        font-size: 13px;
+        position: relative;
+        line-height: 28px;
+        top: -25px;
+    }
+    .home-hero-sub-posts{
+        display: block !important;
+    }
+    .home-hero-sub-posts .feature-block-item-wrapper{
+        margin-bottom: 10px;
+    }
+    .home-hero-sub-posts .explore-cat{
+        padding: 2em;
+    }
+    .pagination-container{
+        display: block !important;
+    }
+    .summary-ul{
+        margin-left: 30px;
+    }
+    .summary-li{
+        list-style:number;
+        border-bottom: 1px dashed #ddd;
+        margin-bottom: 10px;
+    }
+    .summary-a{
+        display: block;
+    }
+    .comment-button{
+        margin-bottom: 1rem;
+    }
+    .post-footer-meta{
+        text-align: center;
+    }
+    .incenter{
+        justify-content: center;
+    }
+    .socialite-widget-ul{
+        margin:15px 0;
+    }
+    .feature-block-item.__first img{
+        height: 233px;
+    }
+    .page .contact-form .form-row{
+        display: grid;
+    }
+}

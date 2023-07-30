@@ -1,0 +1,110 @@
+{{ if .Params.the_products }}
+{{ if .Params.product_Mheading }}
+    <h2>{{.Params.product_Mheading}}</h2>
+{{else}}
+    <h2>{{.Title}} Reviews</h2>
+{{end}}
+<!-- Product Previews -->
+{{ range .Params.the_products }}
+{{- $amzlong := or (findRE "amazon" .amzlink) (findRE "amzn" .amzlink) }}
+<div class="c-v-a" id="{{.name | anchorize}}" >
+    <figure class="image-figure" itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+        <div class="figure-img">
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.global}}{{end}}" aria-label="{{.name}}"
+                class="flex flex-column p-relative" target="_blank" rel="nofollow sponsored noopener noreferrer">
+                <img src="{{.image}}"
+                    class="ez-product-preview-img" loading="lazy" alt="{{.name}}" width="300" height="300">
+            </a>
+        </div>
+        <meta itemprop="url" content="{{.image}}">
+        <meta itemprop="height" content="300">
+        <meta itemprop="width" content="300">
+        <figcaption class="image-figcaption">
+            <span class="caption" itemprop="caption">{{.name}}</span>
+            <span class="credit">(Image credit: <span itemprop="copyrightHolder">{{ with .site.Params.amznTracking.productImage_credit }}{{.}}{{else}}Amazon{{end}}</span>)</span>
+        </figcaption>
+    </figure>
+    <h3 class="title__heading">
+        <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.global}}{{end}}" aria-label="{{.name}}"
+            target="_blank" rel="nofollow sponsored noopener noreferrer">
+            <span class="title__text">{{.name}}</span>
+        </a>
+    </h3>
+    <div class="subtitle">
+        <p>{{.award}}</p>
+    </div>
+    <div class="specifications">
+    {{ range .specifications }}
+    {{ if .specification }}
+        <p class="specs__title"><strong>SPECIFICATIONS</strong></p>
+    {{ end }}
+        <p class="specs__text">{{ .specification | markdownify }}</p>
+    {{ end }}
+    </div>
+    {{ if or (.pros) (.cons) }}
+    <div class="p-and-c">
+        <div class="w-100 flex pros-and-cons mb2-5">
+            {{ if .pros }}
+            <div class="w-100 pros black mr2">
+                <h4 class="mb3 f4 ttu">REASONS TO BUY</h4>
+                {{range .pros}}
+                <p class="flex flex-row items-start">
+                    <span class="bg-greene teal br-50 mr2 tc f5 single-post-recommendation-pros-cons">✓</span>
+                    <span>{{.pro}}</span>
+                {{end}}
+                </p>
+            </div>
+            {{ end }}
+            {{ if .cons }}
+            <div class="w-100 cons black">
+                <h4 class="mb3 f4 ttu">REASONS TO AVOID</h4>
+                {{ range .cons }}
+                <p class="flex flex-row items-start">
+                        <span class="bg-rede grey-4 f5 br-50 tc mr2 single-post-recommendation-pros-cons">✗</span>
+                        <span>{{.con}}</span>
+                    </p>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+        <p class="amazon-link">
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.global}}{{end}}" aria-label="{{.name}}"
+                class="btn btn-orange" target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.product_CTA | default "View on Amazon" }}</a>
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/product-reviews/{{.amzlink}}/?tag={{site.Params.amznTracking.review}}{{end}}"
+                aria-label="{{.name}}" class="amazon-review-button" target="_blank"
+                rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.buyerReview_CTA | default "Read Customer Reviews" }}</a>
+            {{ range .morebtns }}
+                <a href="{{.btnLink}}" aria-label="{{.name}}"
+                class="btn btn-orange" target="_blank" rel="nofollow sponsored noopener noreferrer">{{.btnName | title}}</a>
+            {{ end }}
+        </p>
+    </div>
+    {{ else }}
+        <p class="amazon-link">
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.global}}{{end}}" aria-label="{{.name}}"
+                class="btn btn-orange" target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.product_CTA | default "View on Amazon" }}</a>
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/product-reviews/{{.amzlink}}/?tag={{site.Params.amznTracking.review}}{{end}}"
+                aria-label="{{.name}}" class="amazon-review-button" target="_blank"
+                rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.buyerReview_CTA | default "Read Customer Reviews" }}</a>
+            {{ range .morebtns }}
+                <a href="{{.btnLink}}" aria-label="{{.name}}"
+                class="btn btn-orange" target="_blank" rel="nofollow sponsored noopener noreferrer">{{.btnName | title}}</a>
+            {{ end }}
+        </p>
+    {{ end }}
+    {{ range .paragraphs }}
+        <p>{{ .paragraph | markdownify }}</p>
+    {{ end }}
+
+    {{ if eq site.Params.post_setting.bottomCTA true }}
+        <p class="bottom-product-amazon-link">
+            <a href="{{ if $amzlong }}{{.amzlink}}{{else}}https://www.amazon.com/dp/{{.amzlink}}/?tag={{site.Params.amznTracking.global}}{{end}}" aria-label="{{.name}}" class="btn btn-orange" style="display:block" target="_blank" rel="nofollow sponsored noopener noreferrer">{{ site.Params.post_setting.product_CTA | default "View on Amazon" }}</a>
+        </p>
+    {{ end }}
+    
+    {{ if (fileExists "layouts/partials/ads/below-product.html") -}}
+    {{ partial "ads/below-product" . }}
+    {{ end }}
+</div>
+{{ end }}
+{{ end }}

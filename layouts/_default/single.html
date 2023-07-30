@@ -1,0 +1,18 @@
+{{ define "main" }}
+    
+<article class="news-article single-article">
+    {{ partial "single/meta" . }}
+    {{ partial "single/featured_image" . }}
+    <div class="article-with-sidebar">
+        <article class="{{ if eq site.Params.post_setting.show_all_toc true }}article{{end}}">
+            {{ partial "single/advanced_single" . }}
+        </article>
+            {{ partial "sidebar/index" . }}
+    </div>
+
+    {{ partial "single/editor-recommendation" . }}
+
+</article>
+
+
+{{ end }}

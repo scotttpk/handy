@@ -1,0 +1,23 @@
+{{ with .Site.Params.G4analytics }}
+<!-- Google tag G4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{.}}');
+</script>
+{{ end }}
+
+{{ with .Site.Params.UAanalytics }}
+<!-- Google tag G3 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{.}}');
+</script>
+{{ end }}
