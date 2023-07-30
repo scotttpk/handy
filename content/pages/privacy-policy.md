@@ -1,14 +1,14 @@
 ---
 title: Privacy Policy
 type: pages
-draft: true
+draft: false
 seo_title: ""
 url: privacy-policy
 date: 2023-07-30T15:40:35.869Z
 ---
 ## Who we are
 
-Our website address is: https://surferhandy.com.
+Our website address is: [https://surferhandy.com](surferhandy.com).
 
 ## What personal data we collect and why we collect it
 
