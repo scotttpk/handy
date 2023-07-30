@@ -3,6 +3,9 @@ icon = "/uploads/surferhandy-favicon-1-32x32.png"
 tagline = "Your Source For Every Handy Advice"
 contacteMail = ""
 
+[colors]
+mainColor = "#5aae5d"
+
 [amznTracking]
 global = ""
 topProducts = ""
