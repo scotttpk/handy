@@ -38,10 +38,20 @@ url = "https://www.facebook.com/hey.yousaf"
 
 [[footer]]
 weight = 1
-name = "Elements"
-url = "/elements/"
+name = "About"
+url = "/about/"
 
 [[footer]]
 weight = 1
 name = "Contact Form"
-url = "/contact-form/"
+url = "/contact/"
+
+[[footer]]
+weight = 1
+name = "Disclaimer"
+url = "/disclaimer/"
+
+[[footer]]
+weight = 1
+url = "/privacy-policy/"
+name = "Privacy Policy"
