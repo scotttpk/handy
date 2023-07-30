@@ -1,11 +1,13 @@
 ---
-title: Contact Form
-seo_title: Contact Form
+title: CONTACT US
 type: pages
 draft: false
-url: contact-form
-date: 2022-02-16T16:25:31.498Z
+seo_title: Contact Form
+url: contact
+date: 2023-07-30T15:37:29.386Z
 ---
-Thank you for contacting us. We will get back to you at our earliest opportunity.
+We’re always available to help if you can’t find answers on our website! We’d love to hear from you. We welcome any **content suggestions, partnership inquiries, and advertising requests.**
 
-{{<contact-form>}}
+We will do our best to get back to you as soon as we can take a break from working on our duties, but you can expect to hear from us within **2-4 business days**.
+
+surferhandy.info\[at]gmail\[dot]com
