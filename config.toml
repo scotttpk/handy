@@ -1,7 +1,7 @@
 languageCode = "en-us"
 DisqusShortname = ""
-baseURL = "https://salesmag.netlify.app/"
 googleAnalytics = ""
+baseURL = "https://dynamic-seahorse-66e3e3.netlify.app"
 title = "Sales Mag Theme"
 paginate = "14"
 assetDir = "static"
