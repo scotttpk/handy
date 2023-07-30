@@ -31,11 +31,6 @@ weight = 3
 name = "Elements"
 url = "/elements/"
 
-[[main]]
-weight = 4
-name = "Buy this Theme"
-url = "https://www.facebook.com/hey.yousaf"
-
 [[footer]]
 weight = 1
 name = "About"
