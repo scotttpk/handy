@@ -1,7 +1,7 @@
 languageCode = "en-us"
 DisqusShortname = ""
 googleAnalytics = ""
-baseURL = "https://dynamic-seahorse-66e3e3.netlify.app"
+baseURL = "https://surferhandy.netlify.app"
 title = "SurferHandy"
 paginate = "14"
 assetDir = "static"
