@@ -6,7 +6,7 @@ trending: false
 author: Will Nathan
 date: 2023-08-01T03:29:43.201Z
 updateDate: 2023-08-01T03:29:43.218Z
-featured_Image: /uploads/makita-blowrs-range.png
+featured_Image: /uploads/makita-blowrs-range-1-.png
 faqs:
   - question: "**How efficient is an 18V battery Makita leaf blower?**"
     answer: >-
